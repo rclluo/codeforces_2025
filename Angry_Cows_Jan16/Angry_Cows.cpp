@@ -42,16 +42,4 @@ int main() {
 	cout << fixed << setprecision(1) << (double)lower/2 << endl;
 }
 
-/*
-Corrupted
-Evil
-Poor
-Common
-Uncommon
-Rare
-Epic
-Legendary
-Mythic
-Ascendant
-Godlike
 */
