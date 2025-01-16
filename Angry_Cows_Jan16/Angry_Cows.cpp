@@ -21,7 +21,6 @@ int main() {
 		int power=lower+(upper-lower)/2;
 		int pos_lo=0;
 		int pos_hi=MAX_POS*2;
-
 		while (pos_lo<pos_hi) {
 			int pos=pos_lo+(pos_hi-pos_lo+1)/2;
 			int close=lower_bound(bales.begin(),bales.end(),pos)-bales.begin();
@@ -41,5 +40,3 @@ int main() {
 	}
 	cout << fixed << setprecision(1) << (double)lower/2 << endl;
 }
-
-*/
