@@ -14,7 +14,40 @@ int main() {
 		bales[i] *= 2;
 	}
 	sort(bales.begin(),bales.end());
-	function<bool(int,int,int,bool)> push=[&](int pos,int idx,int r,bool dir){if(idx>=n-1&&dir==0){return(idx>=n||pos+r>=bales[idx]);}if(idx<=0&&dir==1){return(idx<0||pos-r<=bales[idx]);}if(dir==0){if(pos+r>=bales.back())return true;int new_idx=idx;while(new_idx<n&&pos+r>=bales[new_idx]){new_idx++;}if(new_idx==idx){return false;}return push(bales[new_idx-1],new_idx,r-2,dir);}else{if(pos-r<=bales[0]){return true;}int new_idx=idx;while(new_idx<n&&pos-r<=bales[new_idx]){new_idx--;}if(new_idx==idx){return false;}return push(bales[new_idx+1],new_idx,r-2,dir);}return false;};
+	function<bool(int,int,int,bool)> push=[&](int pos,int idx,int r,bool dir){
+		if(idx>=n-1&&dir==0) {
+			return(idx>=n||pos+r>=bales[idx]);
+		}
+		if(idx<=0&&dir==1) {
+			return(idx<0||pos-r<=bales[idx]);
+		}
+		if(dir==0) {
+			if (pos+r>=bales.back()) {
+				return true;
+			}
+			int new_idx=idx;
+			while (new_idx<n&&pos+r>=bales[new_idx]) {
+				new_idx++;
+			}
+			if (new_idx==idx) {
+				return false;
+			}
+			return push(bales[new_idx-1],new_idx,r-2,dir);
+		} else {
+			if(pos-r<=bales[0]){
+				return true;
+			}
+			int new_idx=idx;
+			while (new_idx<n&&pos-r<=bales[new_idx]) {
+				new_idx--;
+			}
+			if(new_idx==idx) {
+				return false;
+			}
+			return push(bales[new_idx+1],new_idx,r-2,dir);
+		}
+		return false;
+	};
 	int lower=0;
 	int upper=MAX_POS*2;
 	while (lower<upper) {
