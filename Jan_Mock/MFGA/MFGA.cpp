@@ -1,4 +1,5 @@
 // binary search
+// O(N^2 log N)
 
 #include <bits/stdc++.h>
 using namespace std;
