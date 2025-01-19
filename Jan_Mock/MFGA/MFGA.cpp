@@ -1,5 +1,6 @@
 // binary search
-// O(N^2 log N)
+// Worst case: O(N^2 log N)
+// Real complexity: (N + log N) N log N
 
 #include <bits/stdc++.h>
 using namespace std;
